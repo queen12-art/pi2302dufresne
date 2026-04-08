@@ -1,0 +1,28 @@
+^C:\USERS\1\DOCUMENTS\SCHOOL\THIRD YEAR\SECOND SEMESTER\APP POUR PHONE\A LAB 9\CAFEE_MACHINE\BUILD\WINDOWS\X64\CMAKEFILES\85591158CB3907E3DD5E96FAD44CA076\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter "PROJECT_DIR=C:\Users\1\Documents\school\third year\second semester\app pour phone\a lab 9\cafee_machine" FLUTTER_ROOT=C:\flutter "FLUTTER_EPHEMERAL_DIR=C:\Users\1\Documents\school\third year\second semester\app pour phone\a lab 9\cafee_machine\windows\flutter\ephemeral" "PROJECT_DIR=C:\Users\1\Documents\school\third year\second semester\app pour phone\a lab 9\cafee_machine" "FLUTTER_TARGET=C:\Users\1\Documents\school\third year\second semester\app pour phone\a lab 9\cafee_machine\lib\main.dart" DART_DEFINES=RkxVVFRFUl9WRVJTSU9OPTMuNDEuNA==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049ZmYzN2JlZjYwMw==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049ZTRiOGRjYTNmMQ==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My4xMS4x DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false "PACKAGE_CONFIG=C:\Users\1\Documents\school\third year\second semester\app pour phone\a lab 9\cafee_machine\.dart_tool\package_config.json" C:/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\1\DOCUMENTS\SCHOOL\THIRD YEAR\SECOND SEMESTER\APP POUR PHONE\A LAB 9\CAFEE_MACHINE\BUILD\WINDOWS\X64\CMAKEFILES\ED721A840621EA2471653E287E3DC079\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\1\DOCUMENTS\SCHOOL\THIRD YEAR\SECOND SEMESTER\APP POUR PHONE\A LAB 9\CAFEE_MACHINE\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SC:/Users/1/Documents/school/third year/second semester/app pour phone/a lab 9/cafee_machine/windows" "-BC:/Users/1/Documents/school/third year/second semester/app pour phone/a lab 9/cafee_machine/build/windows/x64" --check-stamp-file "C:/Users/1/Documents/school/third year/second semester/app pour phone/a lab 9/cafee_machine/build/windows/x64/flutter/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
