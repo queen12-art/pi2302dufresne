@@ -2,11 +2,12 @@ import 'classes/machine.dart';
 import 'classes/i_coffee.dart';
 import 'classes/enums.dart';
 
-void main() {
-  print("🚀 === TP10 : Machine à Café OO === 🚀");
-  print("--------------------------------------");
+// main doit être async pour pouvoir utiliser await
+Future<void> main() async {
+  print("🚀 === TP11 : Coffee Machine with Asynchronism === 🚀");
+  print("---------------------------------------------------");
 
-  // 1. Création de la machine avec des ressources
+  // Création de la machine avec des ressources
   Machine maMachine = Machine(
     water: 1000,
     milk: 1000,
@@ -14,34 +15,33 @@ void main() {
     cash: 0,
   );
 
-  // 2. Affichage de l'état initial
-  print("📊 État initial :");
+  // Affichage de l'état initial
+  print("\n📊 Initial state:");
   maMachine.displayStatus();
 
-  // 3. Premier client : veut un Espresso
-  // On utilise la Factory Method pour créer le café !
-  print("\n👤 Client 1 : Je voudrais un Espresso.");
+  // Client 1 : veut un Espresso
+  print("\n👤 Client 1: I would like an Espresso.");
   ICoffee commande1 = ICoffee.createCoffee(CoffeeType.espresso);
-  maMachine.makeCoffee(commande1);
+  await maMachine.makeCoffee(commande1); // ← ATTEND la préparation
 
-  // 4. Deuxième client : veut un Cappuccino
-  print("\n👤 Client 2 : Je voudrais un Cappuccino.");
+  // Client 2 : veut un Cappuccino
+  print("\n👤 Client 2: I would like a Cappuccino.");
   ICoffee commande2 = ICoffee.createCoffee(CoffeeType.cappuccino);
-  maMachine.makeCoffee(commande2);
+  await maMachine.makeCoffee(commande2); // ← ATTEND la préparation
 
-  // 5. Troisième client : veut un Americano
-  print("\n👤 Client 3 : Je voudrais un Americano.");
+  // Client 3 : veut un Americano
+  print("\n👤 Client 3: I would like an Americano.");
   ICoffee commande3 = ICoffee.createCoffee(CoffeeType.americano);
-  maMachine.makeCoffee(commande3);
+  await maMachine.makeCoffee(commande3); // ← ATTEND la préparation
 
-  // 6. Affichage de l'état final
-  print("\n📊 État final après les ventes :");
+  // Affichage de l'état final
+  print("\n📊 Final state after sales:");
   maMachine.displayStatus();
 
-  // 7. Test : essayer de faire un café avec une machine vide
-  print("\n⚠️ Test : Machine vide...");
+  // Test : essayer de faire un café avec une machine vide
+  print("\n⚠️ Test: Empty machine...");
   Machine machineVide = Machine(water: 0, milk: 0, coffeeBeans: 0, cash: 0);
-  machineVide.makeCoffee(ICoffee.createCoffee(CoffeeType.espresso));
+  await machineVide.makeCoffee(ICoffee.createCoffee(CoffeeType.espresso));
   
-  print("\n✅ TP10 terminé avec succès !");
+  print("\n✅ TP11 completed successfully!");
 }
