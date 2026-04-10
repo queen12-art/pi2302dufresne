@@ -20,6 +20,13 @@ class Machine {
           cash: cash,
         );
 
+  // --- GETTERS (Accesseurs) ---
+  // Permet de lire les valeurs des ressources depuis l'extérieur
+  int get water => _resources.water;
+  int get milk => _resources.milk;
+  int get coffee => _resources.coffee;
+  int get cash => _resources.cash;
+
   void displayStatus() {
     print('💧 Water: ${_resources.water} ml');
     print('🥛 Milk: ${_resources.milk} ml');
