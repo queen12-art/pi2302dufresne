@@ -1,205 +1,105 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Lab4App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Lab4App extends StatelessWidget {
+  const Lab4App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'TP4 - UI & Layout',
+      title: 'Lab 4 - Campus',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.green, // Thème vert demandé
         useMaterial3: true,
       ),
-      home: const ProfileCardPage(),
+      home: const CampusPage(),
     );
   }
 }
 
-class ProfileCardPage extends StatelessWidget {
-  const ProfileCardPage({super.key});
+class CampusPage extends StatelessWidget {
+  const CampusPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      // 1. Barre verte
       appBar: AppBar(
-        title: const Text('TP4 - Profile Card'),
-        backgroundColor: Colors.purple[700],
+        title: const Text('Campus KubGAU'),
+        backgroundColor: Colors.green[700],
         foregroundColor: Colors.white,
       ),
-      body: Center(
-        child: Container(
-          width: 320,
-          margin: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 10,
-                offset: const Offset(0, 5),
+      // 2. Écran scrollable (SingleChildScrollView)
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 3. Le texte sur les dortoirs (Page 50 du PDF)
+            const Text(
+              'Студенческий городок или так называемый кампус Кубанского ГАУ состоит из двадцати общежитий, в которых проживает более 8000 студентов, что составляет 96% от всех нуждающихся. Студенты первого курса обеспечены местами в общежитии полностью. В соответствии с Положением о студенческих общежитиях университета, при поселении между администрацией и студентами заключается договор найма жилого помещения. Воспитательная работа в общежитиях направлена на улучшение быта, соблюдение правил внутреннего распорядка, отсутствия асоциальных явлений в молодежной среде. Условия проживания в общежитиях университетского кампуса полностью отвечают санитарным нормам и требованиям: наличие оборудованных кухонь, душевых комнат, прачечных, читальных залов, комнат самоподготовки, помещений для заседаний студенческих советов и наглядной агитации. С целью улучшения условий быта студентов активно работает система студенческого самоуправления- студенческие советы организуют всю работу по самообслуживанию.',
+              style: TextStyle(
+                fontSize: 16,
+                height: 1.5,
+                color: Colors.black87,
               ),
-            ],
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Stack pour superposer header et avatar
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  // Header
-                  Container(
-                    width: double.infinity,
-                    height: 120,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.purple, Colors.purpleAccent],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                    ),
-                    child: const Center(
-                      child: Icon(Icons.person, size: 60, color: Colors.white),
-                    ),
-                  ),
-                  
-                  // Avatar positionné en bas du header
-                  Positioned(
-                    left: 0,
-                    right: 0,
-                    bottom: -50,
-                    child: Center(
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 4),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              blurRadius: 10,
-                            ),
-                          ],
-                        ),
-                        child: const Icon(
-                          Icons.account_circle,
-                          size: 80,
-                          color: Colors.purple,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              textAlign: TextAlign.justify,
+            ),
 
-              const SizedBox(height: 60), // Espace pour l'avatar qui dépasse
+            const SizedBox(height: 30),
 
-              // Nom
-              const Text(
-                'John Doe',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+            // 4. Cœur rouge (Page 51 du PDF)
+            Center(
+              child: InkWell(
+                onTap: () {
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(const SnackBar(content: Text('❤️ ❤️ ❤️')));
+                },
+                child: const Icon(
+                  Icons.favorite,
+                  size: 60,
+                  color: Colors.red, // Cœur rouge demandé
                 ),
               ),
+            ),
 
-              const SizedBox(height: 8),
+            const SizedBox(height: 30),
 
-              // Job
-              Text(
-                'Flutter Developer',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey[600],
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // Description
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Text(
-                  'Passionate about creating beautiful and functional mobile applications.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[700],
-                    height: 1.5,
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              // Boutons d'action
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _buildActionButton(Icons.message, 'Message', Colors.purple, context),
-                  _buildActionButton(Icons.person_add, 'Follow', Colors.orange, context),
-                ],
-              ),
-              
-              const SizedBox(height: 24),
-            ],
-          ),
+            // 5. Les 3 boutons (Позвонить, Маршрут, Поделиться)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildActionBtn(Icons.call, 'Call', context),
+                _buildActionBtn(Icons.directions, 'Route', context),
+                _buildActionBtn(Icons.share, 'Share', context),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildActionButton(IconData icon, String label, Color color, BuildContext context) {
-    return Column(
-      children: [
-        InkWell(
-          onTap: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('You clicked on $label!'),
-                backgroundColor: color,
-                duration: const Duration(seconds: 2),
-                behavior: SnackBarBehavior.floating,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            );
-          },
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: color.withOpacity(0.1),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(icon, color: color, size: 28),
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 14,
-            color: color,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ],
+  // Widget pour les boutons verts
+  Widget _buildActionBtn(IconData icon, String label, BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () {
+        // Feedback visuel pour montrer que le bouton fonctionne
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Action: $label')));
+      },
+      icon: Icon(icon, color: Colors.white),
+      label: Text(label, style: const TextStyle(color: Colors.white)),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.green[600], // Boutons verts
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      ),
     );
   }
 }
